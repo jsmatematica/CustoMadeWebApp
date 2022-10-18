@@ -4,6 +4,7 @@
     Author     : jsmat
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="java.util.Base64"%>
 <%@page import="customade2.Entidades.Articulo"%>
 <%@page import="BD.Conexion"%>
@@ -19,7 +20,8 @@
         
         <%
 
-        Articulo a = Conexion.getInstance().getControladorDeArticulos().getArticulo(8);
+        List<Articulo> arts = Conexion.getInstance().select("FROM Articulo", Articulo.class);
+      Articulo a = arts.get(0); //Conexion.getInstance().getControladorDeArticulos().getArticulo(8);
         byte[] img = a.getImagenDeFondo();
         byte[] encoded = Base64.getEncoder().encode(img);
         String imagen = new String(encoded);
