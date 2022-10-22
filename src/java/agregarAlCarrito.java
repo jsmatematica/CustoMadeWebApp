@@ -4,10 +4,18 @@
  * and open the template in the editor.
  */
 
+import BD.Conexion;
+import DTOs.Carrito;
+import customade2.Entidades.Articulo;
+import customade2.Entidades.Disenio;
 import customade2.Entidades.Imagen;
+import customade2.Entidades.Posicion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +44,7 @@ public class agregarAlCarrito extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession sesion = request.getSession(true);
+            HttpSession sesion = request.getSession();
             
             Carrito carrito = new Carrito();
             if(sesion.getAttribute("carrito") != null){
@@ -44,10 +52,51 @@ public class agregarAlCarrito extends HttpServlet {
             }
             
             Imagen imgFront = new Imagen();
-//            imgFront.setMarginLeft(Integer.parseInt(request.getParameter("leftFront").toString().substring(0, request.getParameter("leftFront").toString().length()-1)));
-//            out.print(parseInt(request.getParameter("leftFront").substring(0,request.getParameter("leftFront").length()-1)));
-            imgFront.setMarginLeft(parseInt(request.getParameter("leftFront").substring(0,request.getParameter("leftFront").length()-1)));
-            out.print("funcionando");
+            imgFront.setMarginLeft(parseInt(request.getParameter("leftFront")));
+            imgFront.setAncho(parseInt(request.getParameter("anchoFrente")));
+            imgFront.setMarginTop(parseInt(request.getParameter("topFront")));
+            imgFront.setPosicionBackFront(Posicion.FRONT);
+            
+            
+            String base64Front = request.getParameter("imgFront").toString();
+            String base64SinUrlFront = base64Front.substring(base64Front.indexOf(",") + 1);
+            byte[] imgFrontBytes = Base64.getDecoder().decode(base64SinUrlFront.getBytes());
+            imgFront.setImagenProporcionada(imgFrontBytes);
+            
+            
+            Imagen imgBack = new Imagen();
+            imgBack.setMarginLeft(parseInt(request.getParameter("leftBack")));
+            imgBack.setAncho(parseInt(request.getParameter("anchoBack")));
+            imgBack.setMarginTop(parseInt(request.getParameter("topBack")));
+            imgBack.setPosicionBackFront(Posicion.BACK);
+            
+            
+            String base64Back = request.getParameter("imgBack").toString();
+            String base64SinUrlBack = base64Back.substring(base64Back.indexOf(",") + 1);
+            byte[] imgBackBytes = Base64.getDecoder().decode(base64SinUrlBack.getBytes());
+            imgBack.setImagenProporcionada(imgBackBytes);
+            
+            String talle = request.getParameter("talleEnviar");
+            
+            Articulo a = Conexion.getInstance().getControladorDeArticulos().getArticulo(Long.parseLong(request.getParameter("idArticulo")));
+            String tipo = TipoArtMAPPER.TypeToString(a.getTipo());
+            String color = a.getColor();
+            List<Articulo> arts = Conexion.getInstance().select("FROM Articulo WHERE tipo ='"+tipo+"' AND talle = '"+talle+"' AND color ='"+color+"'", Articulo.class);
+            
+            Articulo esteArticulo = arts.get(0);
+            
+            Disenio d = new Disenio();
+            d.setArticulo(esteArticulo);
+            List<Imagen> imagenes = new ArrayList<Imagen>();
+            imagenes.add(imgBack);
+            imagenes.add(imgFront);
+            d.setImagens(imagenes);
+            d.setPrecioUnitario(esteArticulo.getPrecioUnitario());
+            d.setNombre(request.getParameter("nombre"));
+            carrito.disenios.add(d);
+            carrito.miniaturas.add(request.getParameter("miniatura"));
+            sesion.setAttribute("carrito", carrito);
+            out.print("Tu diseño se agregó correctamente");
         }
     }
 

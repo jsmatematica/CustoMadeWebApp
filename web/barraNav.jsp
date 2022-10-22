@@ -5,8 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page  import="java.util.*" session='true'%>
 <!DOCTYPE html>
 <head>
+    <%
+     HttpSession sesion=request.getSession();
+    %>
     <style>
         nav{
             height: 15vh;
@@ -32,18 +36,68 @@
             right: 10%;
             
         }
-        #carrito{
+        #verCarrito{
+            display: flex;
             opasity: 1;
             height: 45%;
             position: absolute;
             top: 30%;
             right: 20%;
+            z-index: -1;
+        }
+        iframe{
+            width: 85vw;
+            height: 85vh;
+            border: none;
+        }
+        dialog{
+            border: none;
+        }
+        dialog button{
+            background: none;
+            border: none;
         }
         
+        #novacio{
+            width: 1vw;
+            height: 1vw;
+            position: absolute;
+            top: 50%;
+            right: 21%;
+            display: flex;
+            z-index: 1;
+            visibility: <% 
+            
+                    if(sesion.getAttribute("carrito")==null){
+                    out.print("hidden");
+                    }else{
+                    out.print("visible");
+                    }
+                
+                
+                %>;
+        }
     </style>
 </head>
 <nav>
     <img src="customade.png" alt="logo">
-    <img id="carrito" src="carrito.png" alt="carrito">
+        <img id="novacio" src="plusrojo.png">
+    <img id="verCarrito" src="carrito.png" alt="carrito">
     <a id="inicioDeSesion" href='' >Iniciar Sesión</a><a id="registro" href=''>Registrarse</a>
+    <dialog id="visualizador">
+        <button id="cerrar">X</button>
+            <iframe src="mostrarCarrito.jsp">
+        
+    </iframe>
+    </dialog>
 </nav>
+
+
+<script>
+    document.getElementById("novacio").onclick = function(){
+            document.getElementById("visualizador").showModal();
+     }
+document.getElementById("cerrar").onclick = function(){
+            document.getElementById('visualizador').close();
+        }
+</script>

@@ -8,57 +8,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        iframe{
+            width: 85vw;
+            height: 85vh;
+            border: none;
+        }
+        dialog{
+            border: none;
+        }
+        dialog button{
+            background: none;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <input type="file" name="" id="fileId" 
-        onchange="Uploaded()">
-    <br><br>
-    <button onclick="display()">
-        Subir Articulo
-    </button>
-
-<div id="resp"></div>
-<div id="resp2"></div>
+    <button id="mostrarCarrito">Ver carrito</button>
+    <dialog id="verCarrito">
+        <button id="cerrar">X</button>
+            <iframe src="mostrarCarrito.jsp">
+        
+    </iframe>
+    </dialog>
+    <script>
+        
+        document.getElementById('mostrarCarrito').onclick = function(){
+            
+            document.getElementById('verCarrito').showModal();
+        }
+        document.getElementById("cerrar").onclick = function(){
+            document.getElementById('verCarrito').close();
+        }
+    </script>
+    
 </body>
-
-
-
-
-<script src="http://code.jquery.com/jquery-latest.js">
-</script>
-
-<script>
-
-var base64String = "";
-function Uploaded() {
-	var file = document.querySelector(
-		'input[type=file]')['files'][0];
-	var reader = new FileReader();
-	reader.onload = function () {
-		base64String = reader.result.replace("data:", "")
-			.replace(/^.+,/, "");
-		imageBase64Stringsep = base64String;
-document.getElementById("resp").innerHTML="<img src='data:image/png;base64,"+base64String+"' alt='un pato' id='imagen' width=50%>";
-	}
-
-	reader.readAsDataURL(file);
-}
-
-
-
-
-
-function display() {
-	var enviar = document.getElementById('imagen').src;
-
-$.post('subirArticuloPrueba', {
-				base64 : enviar
-			}, function(responseText) {
-				document.getElementById('resp2').innerHTML = responseText;
-			});
-
-
-}
-
-</script>
 </html>
