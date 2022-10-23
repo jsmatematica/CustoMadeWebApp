@@ -93,8 +93,16 @@ public class agregarAlCarrito extends HttpServlet {
             d.setImagens(imagenes);
             d.setPrecioUnitario(esteArticulo.getPrecioUnitario());
             d.setNombre(request.getParameter("nombre"));
+            d.setPublico(false);
             carrito.disenios.add(d);
             carrito.miniaturas.add(request.getParameter("miniatura"));
+            Conexion.getInstance().persist(d);
+            List<Long> idDisenios = new ArrayList<Long>();
+            if(sesion.getAttribute("idDisenios")!=null){
+            idDisenios = (List<Long>) sesion.getAttribute("idDisenios");
+            }
+            idDisenios.add(d.getId());
+            sesion.setAttribute("idDisenios", idDisenios);
             sesion.setAttribute("carrito", carrito);
             out.print("Tu diseño se agregó correctamente");
         }

@@ -255,8 +255,6 @@ Ingrese las imágenes que ha seleccionado <br>
           <div class='agregar'>
               <button id="argegar" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
         </div>
-        <p><% 
-        out.println("IdSesion: "+sesion.getId());  %></p>
         <div id="agregado"></div>
 <script src="http://code.jquery.com/jquery-latest.js">
 </script>
@@ -468,7 +466,6 @@ document.getElementById("argegar").onclick = function(){
 </script>
 
 
-<a href="mostrarCarrito.jsp">Mostrar Carrito</a>
 </body>
 
 
