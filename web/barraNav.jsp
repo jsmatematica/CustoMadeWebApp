@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  import="java.util.*" session='true'%>
+
 <!DOCTYPE html>
 <head>
     <%
@@ -33,6 +34,10 @@
             color: black;
         }
         #inicioDeSesion{
+            right: 10%;
+            
+        }
+        #verPedido{
             right: 10%;
             
         }
@@ -78,12 +83,22 @@
                 %>;
         }
     </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 </head>
 <nav>
     <img src="customade.png" alt="logo">
         <img id="novacio" src="plusrojo.png">
     <img id="verCarrito" src="carrito.png" alt="carrito">
-    <a id="inicioDeSesion" href='' >Iniciar Sesión</a><a id="registro" href=''>Registrarse</a>
+    <% if(sesion.getAttribute("Usuario")==null){ %>
+    <a id="inicioDeSesion" href='iniciodesesion.jsp' >Iniciar Sesión</a>
+    <a id="registro" href='registroDeUsuario.jsp'>Registrarse</a>
+    <%}else{%>
+    
+    <a id="verPedido" href='' >Mis Pedidos</a>
+    <a id="cerrarsesion" href=''>Cerrar Sesión</a>
+    
+    <%}%>
     <dialog id="visualizador">
         <button id="cerrar">X</button>
             <iframe src="mostrarCarrito.jsp">
@@ -100,4 +115,12 @@
 document.getElementById("cerrar").onclick = function(){
             document.getElementById('visualizador').close();
         }
+document.getElementById("cerrarsesion").onclick = function(){
+    <%
+    sesion.invalidate();
+    %>
+    window.location.href="index.jsp";
+    alert("Se ha cerrado la sesión");
+}
+        
 </script>

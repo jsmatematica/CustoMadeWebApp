@@ -5,18 +5,12 @@
  */
 
 import BD.Conexion;
-import DTO.DatosCliente;
-import DTOs.Carrito;
-import customade2.Entidades.DetalleDePedido;
-import customade2.Entidades.Disenio;
-import customade2.Entidades.EstadoPedido;
-import customade2.Entidades.Pedido;
+import customade2.Entidades.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author jsmat
  */
-@WebServlet(urlPatterns = {"/crearPedido"})
-public class crearPedido extends HttpServlet {
+@WebServlet(urlPatterns = {"/iniciarSesion"})
+public class iniciarSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,35 +40,34 @@ public class crearPedido extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession sesion = request.getSession();
-            List<DetalleDePedido> detalles = new ArrayList<DetalleDePedido>();
-            List<Long> idDetalles = (List<Long>) sesion.getAttribute("idDetalles");
-            int i=0;
-            while(i<idDetalles.size()){
-            detalles.add((Conexion.getInstance().select("FROM DetalleDePedido WHERE id="+idDetalles.get(i), DetalleDePedido.class)).get(0));
-            i++;
+            String passmd5 = Encriptador.getMD5(request.getParameter("pass")); //= Encriptador.getMD5(request.getParameter("pass"));
+            List<Usuario> us = Conexion.getInstance().select("FROM Usuario where email ='"+request.getParameter("email")+"'", Usuario.class);
+            ;
+            if(us.size()==0){
+            out.print("Datos de usuario Incorrectos");
+            }else if(!us.get(0).getPassword().equals(passmd5)){
+            out.print("Datos de usuario Incorrectos");
+            }else{
+            sesion.setAttribute("Usuario", us.get(0));
+            
+            out.println("<script>");
+            out.println("window.onload = function(){");
+            out.println("window.location.href='index.jsp';");
+            out.println("alert('Sesion iniciada');");
+            out.println("}");
+            out.println("</script>");
+
+//            out.print("Sesion iniciada<br>");
+//            out.println("<a href='index.jsp'>Volver al inicio</a>");
+            
             }
             
-            String nombre = request.getParameter("nombrecompleto");
-            int ci = Integer.parseInt(request.getParameter("ci"));
-            String email = request.getParameter("email");
-            String dir = request.getParameter("dir");
-            String tel =  request.getParameter("tel");
-            
-            DatosCliente datos = new DatosCliente();
-            datos.setCi(ci);
-            datos.setDireccion(dir);
-            datos.setEmail(email);
-            datos.setNombreCompleto(nombre);
-            datos.setTelefono(tel);
-            Conexion.getInstance().getControladorDePedidos().crearPedidoNoRegistrado(datos, detalles);
-            out.println("Pedido enviado");
-            out.println("Puede consultar sus pedidos por numero de Cedula aqui: ");
-            out.println("<a href='consultarpedidos.jsp'>Buscar Pedidos</a>");
-            sesion.invalidate();
-            
-        }
-    }
 
+	      }
+    }
+		
+		
+  
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
