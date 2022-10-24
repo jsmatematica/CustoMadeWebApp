@@ -4,22 +4,26 @@
  * and open the template in the editor.
  */
 
+import BD.Conexion;
+import customade2.Entidades.DetalleDePedido;
+import customade2.Entidades.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sun.rmi.server.Dispatcher;
 
 /**
  *
  * @author jsmat
  */
-@WebServlet(urlPatterns = {"/cerrarsesion"})
-public class cerrarsesion extends HttpServlet {
+@WebServlet(urlPatterns = {"/crearPedidoRegistrado"})
+public class crearPedidoRegistrado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,8 +39,18 @@ public class cerrarsesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-//            HttpSession sesion = request.getSession();
-//            sesion.invalidate();
+            HttpSession sesion = request.getSession();
+            List<DetalleDePedido> detalles = new ArrayList<DetalleDePedido>();
+            List<Long> idDetalles = (List<Long>) sesion.getAttribute("idDetalles");
+            int i=0;
+            while(i<idDetalles.size()){
+            detalles.add((Conexion.getInstance().select("FROM DetalleDePedido WHERE id="+idDetalles.get(i), DetalleDePedido.class)).get(0));
+            i++;
+            }
+            
+            Usuario u = (Usuario) sesion.getAttribute("Usuario");
+            Conexion.getInstance().getControladorDePedidos().crearPedido(u, detalles);
+            
         }
     }
 

@@ -57,8 +57,8 @@ public class iniciarSesion extends HttpServlet {
             out.println("}");
             out.println("</script>");
 
-//            out.print("Sesion iniciada<br>");
-//            out.println("<a href='index.jsp'>Volver al inicio</a>");
+            out.print("Sesion iniciada<br>");
+            out.println("<a href='index.jsp'>Volver al inicio</a>");
             
             }
             

@@ -135,7 +135,12 @@ Carrito carrito = new Carrito();
                                 }
                                 %>cantidad<% out.print(carrito.disenios.size()-1); %> : cantidad<% out.print(carrito.disenios.size()-1); %>Var
 			}, function(responseText) {
+                                <% if(sesion.getAttribute("Usuario")==null){%>
                             window.location.href="finalizarPedidoSinRegistro.jsp";
+                            <%}else{%>
+                                window.location.href="confirmarPedido.jsp";
+                                
+                                <%}%>
 			}); 
                       
                      

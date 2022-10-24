@@ -95,8 +95,8 @@
     <a id="registro" href='registroDeUsuario.jsp'>Registrarse</a>
     <%}else{%>
     
-    <a id="verPedido" href='' >Mis Pedidos</a>
-    <a id="cerrarsesion" href=''>Cerrar Sesión</a>
+    <a id="verPedido" href='verpedidosUsuario.jsp' >Mis Pedidos</a>
+    <a id="cerrarsesion" href='cerrarSesion.jsp'>Cerrar Sesión</a>
     
     <%}%>
     <dialog id="visualizador">
@@ -115,12 +115,7 @@
 document.getElementById("cerrar").onclick = function(){
             document.getElementById('visualizador').close();
         }
-document.getElementById("cerrarsesion").onclick = function(){
-    <%
-    sesion.invalidate();
-    %>
-    window.location.href="index.jsp";
-    alert("Se ha cerrado la sesión");
-}
+
+    
         
 </script>
