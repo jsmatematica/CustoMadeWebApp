@@ -1,19 +1,18 @@
 <%-- 
-    Document   : confirmarPedido
-    Created on : Oct 23, 2022, 7:50:55 PM
+    Document   : confirmarPedidoInvitado
+    Created on : Oct 31, 2022, 7:34:09 PM
     Author     : jsmat
 --%>
 
 <%@page import="BD.Conexion"%>
 <%@page import="customade2.Entidades.DetalleDePedido"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page  import="java.util.*" session='true'%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>confirmarPedido</title>
+        <title>JSP Page</title>
     </head>
     <body>
             <%@include file="barraNav.jsp" %>
@@ -39,12 +38,8 @@
         </div>
         <button id="confirmar"> Confirmar </button>
         <script>
-            document.getElementById('confirmar').onclick = function(){
-                $.post('crearPedidoRegistrado',{},function(responseText){
-                    window.location.href="pedidoIngresado.jsp";
-                });
-                
+            document.getElementById("confirmar").onclick = function(){
+                window.location.href = "finalizarPedidoSinRegistro.jsp";
             }
         </script>
-    </body>
 </html>

@@ -88,8 +88,10 @@ public class agregarAlCarrito extends HttpServlet {
             Disenio d = new Disenio();
             d.setArticulo(esteArticulo);
             List<Imagen> imagenes = new ArrayList<Imagen>();
-            imagenes.add(imgBack);
             imagenes.add(imgFront);
+            imagenes.add(imgBack);
+            imgBack.setDisenio(d);
+            imgFront.setDisenio(d);
             d.setImagens(imagenes);
             d.setPrecioUnitario(esteArticulo.getPrecioUnitario());
             d.setNombre(request.getParameter("nombre"));

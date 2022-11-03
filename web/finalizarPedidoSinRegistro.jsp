@@ -16,6 +16,9 @@
         <title>Datos de Cliente</title>
     </head>
     <body>
+        
+        
+        
         <form action="crearPedido" method="POST">
             Nombre Completo: <input name="nombrecompleto" type="text"><br>
             C.I.: <input name="ci" type="number"><br>

@@ -136,9 +136,9 @@ Carrito carrito = new Carrito();
                                 %>cantidad<% out.print(carrito.disenios.size()-1); %> : cantidad<% out.print(carrito.disenios.size()-1); %>Var
 			}, function(responseText) {
                                 <% if(sesion.getAttribute("Usuario")==null){%>
-                            window.location.href="finalizarPedidoSinRegistro.jsp";
+                            window.location.href="confirmarPedidoInvitado.jsp"; // aqui decia finalizarPedidoSinRegistro
                             <%}else{%>
-                                window.location.href="confirmarPedido.jsp";
+                            window.location.href="confirmarPedido.jsp";
                                 
                                 <%}%>
 			}); 
