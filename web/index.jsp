@@ -29,6 +29,14 @@
                 position: absolute;
                 left: 45%;
             }
+            .galeria{
+                margin-top: 10vh;
+                margin-left: 10vw;
+            }
+            p{
+                margin-top: 15vh;
+                margin-left: 15vw;
+            }
         </style>
     </head>
     <body>
@@ -104,6 +112,12 @@
             <a href='editor.jsp'>
             <button type="button" class="btn btn-primary">COMENCEMOS!!!</button>
             <a/>
+        </div>
+        <p>
+            También puedes elegir alguno de los diseños que nuestros usuarios han compartido con nosotros, si te gusta alguno úsalo!
+        </p> 
+        <div class="galeria">
+            <%@include file="galeriaDeDisenios.jsp" %>
         </div>
     </body>
 </html>

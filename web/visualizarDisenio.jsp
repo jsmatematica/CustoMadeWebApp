@@ -37,6 +37,7 @@
           font-family: sans-serif;
       }
 .cuadro{
+    margin: auto;
 display: flex;
 width: 75vw;
 height: 37vw;
