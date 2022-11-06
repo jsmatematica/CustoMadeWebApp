@@ -5,25 +5,23 @@
  */
 
 import BD.Conexion;
-import customade2.Entidades.DetalleDePedido;
-import customade2.Entidades.Usuario;
+import customade2.Entidades.Pedido;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author jsmat
  */
-@WebServlet(urlPatterns = {"/crearPedidoRegistrado"})
-public class crearPedidoRegistrado extends HttpServlet {
+@WebServlet(urlPatterns = {"/getPedidosByCi"})
+public class getPedidosByCi extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,18 +37,22 @@ public class crearPedidoRegistrado extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession sesion = request.getSession();
-            List<DetalleDePedido> detalles = new ArrayList<DetalleDePedido>();
-            List<Long> idDetalles = (List<Long>) sesion.getAttribute("idDetalles");
-            int i=0;
-            while(i<idDetalles.size()){
-            detalles.add((Conexion.getInstance().select("FROM DetalleDePedido WHERE id="+idDetalles.get(i), DetalleDePedido.class)).get(0));
-            i++;
+            List<Pedido> pedidos = Conexion.getInstance().select("FROM Pedido WHERE ciCliente = "+request.getParameter("ci"), Pedido.class);
+            out.print("<table><th>Fecha y Hora</th>"
+                    + "<th>Precio</th>"
+                    + "<th>Estado</th>");
+            for (Iterator<Pedido> iterator = pedidos.iterator(); iterator.hasNext();) {
+                Pedido next = iterator.next();
+                out.print("<tr>");
+                
+                out.print("<td>"+next.getFecha().toString()+"</td>");
+                out.print("<td>$"+next.getPrecioTotal()+"</td>");
+                out.print("<td>"+next.getEstado()+"</td>");
+                out.print("<td><a href='verdisenios.jsp?idPedido="+next.getId()+"'>Ver Diseños</a></td>");
+                out.print("</tr>");
             }
+            out.print("</table>");
             
-            Usuario u = (Usuario) sesion.getAttribute("Usuario");
-            Conexion.getInstance().getControladorDePedidos().crearPedido(u, detalles);
-            sesion.setAttribute("carrito", null);
         }
     }
 

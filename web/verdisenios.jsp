@@ -82,6 +82,7 @@
     </iframe>
     </dialog>
                 </td>
+                <% if(sesion.getAttribute("Usuario")!=null){  %>
                 <td>
                     <input type="button" id="publicar<% out.print(d.getId());  %>" value="<%
                         if(d.isPublico()){
@@ -104,6 +105,7 @@
                         
                     </div>
                 </td>
+                <% }%>
             </tr>
            <%
  

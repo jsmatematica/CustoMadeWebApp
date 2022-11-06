@@ -9,16 +9,32 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cerrar Sesion</title>
+        <style> 
+            #mensaje{
+                margin: 5vh auto;
+                border: solid;
+                border-radius: 10px;
+                text-align: center;
+                padding: 2vw;
+                font-family: sans-serif;
+                width: 50vw;
+                height: 10vh;
+            }
+        </style>
     </head>
     <body>
+                <%@include file="barraNav.jsp" %>
+
         <%
-        HttpSession sesion = request.getSession();
         sesion.invalidate();
         %>
+        <div id="mensaje">
         <h2>
             Se ha cerrado su sesión de usuario
         </h2>
         <a href='index.jsp'>Volver al inicio</a>
+        </div>
+
     </body>
 </html>

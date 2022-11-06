@@ -19,21 +19,54 @@
             p{
                 visibility: hidden;
             }
+            #mensaje2{
+                margin: 10vh auto;
+                padding: 5vh;
+                border: solid;
+                border-radius: 10px;
+                font-family: sans-serif;
+                width: 50vw;
+                height: 30vh;
+            }
+            #mensaje2 label{
+                min-width: 80%;
+                margin-left: 20%;
+            }
+            #mensaje2 label input{
+                border: none;
+            }
+            #nombreDisp{
+                display: inline;
+            }
+            #mensaje{
+                display: inline;
+                font-size: 80%;
+                margin-left: 5px;
+            }
         </style>
         <title>Registro de Usuario</title>
     </head>
     <body>
+        <%@include file="barraNav.jsp" %>
+        <div id="mensaje2">
         <form method="POST" action="registrarUsuario">
-            Nombre completo: <input type="text" name="nombre" required><br>
-            C.I.: <input type="number" name="ci" required><br>
-            Teléfono de contacto: <input type="text" name="tel" required><br>
-            DIrección: <input type="text" name="dir" required><br>
-            email: <input id="email" type="email" name="email" required><div id="nombreDisp"></div><br>
-            Ingrese una contraseña: <input id="pass1" type="password" name="pass1" required><br>
-            Ingrese nuevamente su contraseña: <input id="pass2" type="password" name="pass2" required><p id="mensaje">Las contraseñas no coinciden</p><br>
+            <label>Nombre completo: <input type="text" name="nombre" required></label>
+           <br>
+           <label>C.I.: <input type="number" name="ci" required></label>
+            <br>
+            <label> Teléfono de contacto: <input type="text" name="tel" required></label>
+           <br>
+           <label>Dirección: <input type="text" name="dir" required></label>
+            <br>
+            <label>email: <input id="email" type="email" name="email" required><div id="nombreDisp"></div></label>
+            <br>
+            <label>Ingrese una contraseña: <input id="pass1" type="password" name="pass1" required></label>
+            <br>
+            <label>Ingrese nuevamente su contraseña: <input id="pass2" type="password" name="pass2" required><p id="mensaje">Las contraseñas no coinciden</p></label>
+            <br>
             <input id="boton" type="submit" value="Registrarse">
         </form>
-        
+        </div>
         <script>
             document.getElementById('pass2').onkeyup = function(){
                 if(document.getElementById('pass2').value != document.getElementById('pass1').value){

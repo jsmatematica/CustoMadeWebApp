@@ -33,6 +33,17 @@
             text-decoration: none;
             color: black;
         }
+        
+        #inicio  {
+            position: none;
+            right: none;
+            top: none;
+            margin: none;
+            font-size: none;
+            text-decoration: none;
+            color: none;
+            
+        }
         #inicioDeSesion{
             right: 10%;
             
@@ -87,8 +98,9 @@
 
 </head>
 <nav>
-    <img src="customade.png" alt="logo">
+    <div id="inicio"><img src="customade.png" alt="logo"></div>
         <img id="novacio" src="plusrojo.png">
+
     <img id="verCarrito" src="carrito.png" alt="carrito">
     <% if(sesion.getAttribute("Usuario")==null){ %>
     <a id="inicioDeSesion" href='iniciodesesion.jsp' >Iniciar Sesión</a>
@@ -116,6 +128,8 @@ document.getElementById("cerrar").onclick = function(){
             document.getElementById('visualizador').close();
         }
 
-    
+    document.getElementById('inicio').onclick = function(){
+        window.location.href = "index.jsp";
+    }
         
 </script>

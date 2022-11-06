@@ -41,7 +41,7 @@
     </head>
     <body>
         <%@include file="barraNav.jsp" %>
-
+        <a href='consultarpedidos.jsp'>Seguimiento de Pedidos</a>
         <% Conexion.getInstance();  %>
         
         <div class="container">

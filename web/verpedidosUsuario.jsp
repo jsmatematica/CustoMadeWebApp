@@ -28,7 +28,7 @@
     </head>
     <body>
         <%@include file="barraNav.jsp" %>
-        <h2>Peididos del usuario: </h2>
+        <h2>Pedidos del usuario: </h2>
         <%
          int ci =0;
         if(sesion.getAttribute("Usuario") == null){
