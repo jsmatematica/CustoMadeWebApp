@@ -17,6 +17,10 @@
         <style>     
             table{
                 text-align: center;
+                margin: 15vh auto;
+                border: solid;
+                border-radius: 10px;
+                padding: 10px;
             }
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
