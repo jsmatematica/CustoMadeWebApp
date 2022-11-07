@@ -140,6 +140,17 @@ if(camisetasMujerNegra.size()!=0){
 arts.add(camisetasMujerNegra.get(0));
 }
 
+List<Articulo> buzoHombreBlanco = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'BUZOHOMBRE' AND color = 'Blanco'", Articulo.class);
+if(buzoHombreBlanco.size()!=0){
+arts.add(buzoHombreBlanco.get(0));
+}
+
+
+List<Articulo> buzoHombreNegro = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'BUZOHOMBRE' AND color = 'Negro'", Articulo.class);
+if(buzoHombreNegro.size()!=0){
+arts.add(buzoHombreNegro.get(0));
+}
+
 int i=0;
 while(i<arts.size()){
 
