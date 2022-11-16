@@ -151,6 +151,28 @@ if(buzoHombreNegro.size()!=0){
 arts.add(buzoHombreNegro.get(0));
 }
 
+
+List<Articulo> buzoMujerBlanco = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'BUZOMUJER' AND color = 'Blanco'", Articulo.class);
+if(buzoMujerBlanco.size()!=0){
+arts.add(buzoMujerBlanco.get(0));
+}
+
+List<Articulo> buzoMujerNegro = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'BUZOMUJER' AND color = 'Negro'", Articulo.class);
+if(buzoMujerNegro.size()!=0){
+arts.add(buzoMujerNegro.get(0));
+}
+
+
+List<Articulo> camperaHombreBlanco = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'CAMPERAHOMBRE' AND color = 'Blanco'", Articulo.class);
+if(camperaHombreBlanco.size()!=0){
+arts.add(camperaHombreBlanco.get(0));
+}
+
+
+List<Articulo> camperaHombreNegro = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'CAMPERAHOMBRE' AND color = 'Negro'", Articulo.class);
+if(camperaHombreNegro.size()!=0){
+arts.add(camperaHombreNegro.get(0));
+}
 int i=0;
 while(i<arts.size()){
 
