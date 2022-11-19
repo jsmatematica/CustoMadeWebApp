@@ -173,6 +173,13 @@ List<Articulo> camperaHombreNegro = Conexion.getInstance().select("FROM Articulo
 if(camperaHombreNegro.size()!=0){
 arts.add(camperaHombreNegro.get(0));
 }
+
+List<Articulo> tazaBlanca = Conexion.getInstance().select("FROM Articulo WHERE tipo = 'TAZA' AND color = 'Blanco'", Articulo.class);
+if(camperaHombreNegro.size()!=0){
+arts.add(tazaBlanca.get(0));
+}
+
+
 int i=0;
 while(i<arts.size()){
 

@@ -20,10 +20,10 @@
             body{
                 border: solid;
             }
-            iframe{
+/*            iframe{
                 width: 15vw;
                 height: 11vw;
-            }
+            }*/
             figure{
                 border: solid;
                 width: calc(40vw + 5px);
