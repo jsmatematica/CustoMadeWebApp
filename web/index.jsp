@@ -29,6 +29,13 @@
             .comenzar button{
                 position: absolute;
                 left: 45%;
+                background-color: black;
+                font-size: 1.2vw;
+            }
+            .comenzar button:hover{
+                background-color: black;   
+                padding-top: 0.5%;
+                padding-bottom: 0.5%;
             }
             .galeria{
                 margin-top: 10vh;
@@ -41,23 +48,31 @@
             #parrafomedio {
                text-align: center; 
                  margin-top: 15vh;
-                margin-left: 20vw;
+                margin-left: 30vw;
                 background-color: black;
                 color:white;
-                margin-right: 20vw; 
+                margin-right: 30vw;  
             }
              body {
                  font-family: 'Oswald' ,sans-serif;
                 background-image: url('background.jpg');
-                background-size: 30%;
-                 
+                background-size: 30%;  
+            }
+            #seguimiento{
+                                            
+                    background: black;
+                    padding: 0.5%; 
+                     text-transform: uppercase;
+                     color: white;
+                     font-size: 0.9vw;
+  
             }
             
         </style>
     </head>
     <body>
         <%@include file="barraNav.jsp" %>
-        <a href='consultarpedidos.jsp'>Seguimiento de Pedidos</a>
+        <a id="seguimiento" href='consultarpedidos.jsp'>Seguimiento de Pedidos</a>
         <% Conexion.getInstance();  %>
         
         <div class="container">

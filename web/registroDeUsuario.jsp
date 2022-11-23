@@ -9,28 +9,48 @@
 <html>
     <head>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+ <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style> 
             input[type='submit']{
-                visibility: hidden;
+/*                visibility: hidden;*/
+                color: black;
+                background-color: white;
+                font-family: 'Oswald' ,sans-serif;
+                font-size: 20px;
+                margin-left: 35%;
             }
             
             p{
                 visibility: hidden;
             }
             #mensaje2{
-                margin: 10vh auto;
-                padding: 5vh;
+                 margin: 10vh auto;
                 border: solid;
                 border-radius: 10px;
-                font-family: sans-serif;
-                width: 50vw;
-                height: 30vh;
+/*                height: 50vh;*/
+                background-color: black;
+                color: white;
+                font-family: 'Oswald' ,sans-serif;
+                height: 43vh;
             }
+            .registro {
+                font-family: 'Oswald' ,sans-serif;
+                 color: white;
+                font-size: 40px;
+                font-weight: 600;
+            }
+            #form{
+                margin-left: 35%;
+                               border-radius: 20px;
+                 padding: 20px;
+                 width: 60vh;
+            }
+            
             #mensaje2 label{
                 min-width: 80%;
                 margin-left: 20%;
+               
             }
             #mensaje2 label input{
                 border: none;
@@ -43,26 +63,33 @@
                 font-size: 80%;
                 margin-left: 5px;
             }
+            .labelcito{
+                margin-top: 1%;
+                margin-bottom: 1%;
+            }
+            
         </style>
         <title>Registro de Usuario</title>
     </head>
     <body>
         <%@include file="barraNav.jsp" %>
         <div id="mensaje2">
-        <form method="POST" action="registrarUsuario">
-            <label>Nombre completo: <input type="text" name="nombre" required></label>
+        <form id="form" method="POST" action="registrarUsuario">
+             <label class="registro">Registrarse</label>
+             <br>
+            <label class="labelcito">Nombre completo: <input class="labelcito" type="text" name="nombre" required></label>
            <br>
-           <label>C.I.: <input type="number" name="ci" required></label>
+           <label class="labelcito">C.I.: <input class="labelcito" type="number" name="ci" required></label>
             <br>
-            <label> Teléfono de contacto: <input type="text" name="tel" required></label>
+            <label class="labelcito"> Teléfono de contacto: <input type="text" name="tel" required></label>
            <br>
-           <label>Dirección: <input type="text" name="dir" required></label>
+           <label class="labelcito">Dirección: <input class="labelcito" type="text" name="dir" required></label>
             <br>
-            <label>email: <input id="email" type="email" name="email" required><div id="nombreDisp"></div></label>
+            <label class="labelcito">email: <input class="labelcito" id="email" type="email" name="email" required><div id="nombreDisp"></div></label>
             <br>
-            <label>Ingrese una contraseña: <input id="pass1" type="password" name="pass1" required></label>
+            <label  class="labelcito">Ingrese una contraseña: <input class="labelcito" id="pass1" type="password" name="pass1" required></label>
             <br>
-            <label>Ingrese nuevamente su contraseña: <input id="pass2" type="password" name="pass2" required><p id="mensaje">Las contraseñas no coinciden</p></label>
+            <label class="labelcito">Ingrese nuevamente su contraseña: <input class="labelcito" id="pass2" type="password" name="pass2" required><p id="mensaje">Las contraseñas no coinciden</p></label>
             <br>
             <input id="boton" type="submit" value="Registrarse">
         </form>
