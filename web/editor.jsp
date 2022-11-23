@@ -66,10 +66,12 @@ background-repeat: no-repeat;
 .cuadro div{
 	overflow:hidden;
         position: relative;
+        opacity: 1;
 }
 .cuadro div img{
 	position: relative;
         width: 100%;
+        
 	}
 .editarFrente{
 width: 15%;

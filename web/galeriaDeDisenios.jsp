@@ -30,7 +30,7 @@
                 height: calc(20vw + 2em + 5px);
                 text-align: center;
                 display: inline-block;
-
+                background: white;
             }
             
             
@@ -47,7 +47,6 @@ height: 67%;
 border: solid;
 background-size: 100% 100%;
 background-repeat: no-repeat;
-
 }
 
 .cuadro div{

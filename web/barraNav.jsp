@@ -9,29 +9,34 @@
 
 <!DOCTYPE html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
     <%
      HttpSession sesion=request.getSession();
     %>
     <style>
-        nav{
-            height: 15vh;
-            border: solid;
+       nav{
+            height: 10vh;
+/*            border: solid;*/
             position: relative;
-            font-family: sans-serif;
+            border-bottom: 2px solid black;
+            font-family: 'Oswald' ,sans-serif;
             padding: 0;
             display: flex;
+            text-transform: uppercase;
+            background-color: black;
         }
         nav img{
-            height:  15vh;
+            height:  9vh;
+            margin-left: 20%;
         }
         nav a{
             position: absolute;
             right: 0;
-            top: 30%;
+            top: 16%;
             margin: 1%;
-            font-size: 1.5vw;
+            font-size: 1.2vw;
             text-decoration: none;
-            color: black;
+            color: white;
         }
         
         #inicio  {
@@ -46,7 +51,6 @@
         }
         #inicioDeSesion{
             right: 10%;
-            
         }
         #verPedido{
             right: 10%;
@@ -54,12 +58,12 @@
         }
         #verCarrito{
             display: flex;
-            opasity: 1;
             height: 45%;
             position: absolute;
             top: 30%;
             right: 20%;
-            z-index: -1;
+            z-index: 1;
+            background-color: white;
         }
         iframe{
             width: 85vw;
@@ -79,9 +83,9 @@
             height: 1vw;
             position: absolute;
             top: 50%;
-            right: 21%;
+            right: 20%;
             display: flex;
-            z-index: 1;
+            z-index: 2;
             visibility: <% 
             
                     if(sesion.getAttribute("carrito")==null){

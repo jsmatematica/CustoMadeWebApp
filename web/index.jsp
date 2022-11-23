@@ -11,7 +11,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title>CUSTOMADE</title>
         <style>
@@ -37,6 +38,21 @@
                 margin-top: 15vh;
                 margin-left: 15vw;
             }
+            #parrafomedio {
+               text-align: center; 
+                 margin-top: 15vh;
+                margin-left: 20vw;
+                background-color: black;
+                color:white;
+                margin-right: 20vw; 
+            }
+             body {
+                 font-family: 'Oswald' ,sans-serif;
+                background-image: url('background.jpg');
+                background-size: 30%;
+                 
+            }
+            
         </style>
     </head>
     <body>
@@ -113,7 +129,7 @@
             <button type="button" class="btn btn-primary">COMENCEMOS!!!</button>
             <a/>
         </div>
-        <p>
+        <p id="parrafomedio">
             También puedes elegir alguno de los diseños que nuestros usuarios han compartido con nosotros, si te gusta alguno úsalo!
         </p> 
         <div class="galeria">
