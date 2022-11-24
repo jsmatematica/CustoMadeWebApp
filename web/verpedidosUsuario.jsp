@@ -36,6 +36,21 @@
             .ver:hover{
                 text-decoration: none;
             }
+            .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: black;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Oswald' ,sans-serif;
+}
             
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -81,5 +96,6 @@
         
         %>
         </table>
+        <div class="footer">&copy;<span id="year"> </span><span> CUSTOMADE. All rights reserved.</span></div>
     </body>
 </html>

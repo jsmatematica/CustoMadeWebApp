@@ -91,14 +91,27 @@ fieldset{
 .agregar{
     position: relative;
     height: 20vh;
+    
 }
 
-.agregar button{
+
+.botoncito{
     position: absolute;
     left: 45%;
     top: 25%;
+    text-decoration: none;
+                color: white;
+                background: black;
+                    padding: 0.5%; 
+                     text-transform: uppercase;
+              border-radius: 5%;       
+                     font-size: 0.9vw;
 }
-
+.botoncito:hover{
+    background-color: white;
+             border: solid;
+             color: black;
+}
 #imgBack{
     top: <% out.print(d.getImagens().get(1).getMarginTop()); %>%;
     left: <% out.print(d.getImagens().get(1).getMarginLeft()); %>%;
@@ -315,7 +328,7 @@ Ingrese las imágenes que ha seleccionado <br>
         <h3>Paso 6:</h3>
         Si el diseño te complace puedes agregarlo a tu carrito en donde podrás ver los diseños que se agregarán a tu pedido
           <div class='agregar'>
-              <button id="argegar" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
+              <button class="botoncito" id="agregar" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
         </div>
         <div id="agregado"></div>
 <script src="http://code.jquery.com/jquery-latest.js">

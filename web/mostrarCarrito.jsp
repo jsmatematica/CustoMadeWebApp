@@ -17,7 +17,7 @@
         
         <style> 
             #cuadro{
-                font-family: sans-serif;
+                font-family: 'Oswald' ,sans-serif;
                 border: solid;
                 border-radius: 22px;
                 width: 85vw;
@@ -37,6 +37,21 @@
                 
                 width: 10vw;
             }
+            .finalizar{
+    text-decoration: none;
+                color: white;
+                background: black;
+                    padding: 0.5%; 
+                     text-transform: uppercase;
+              border-radius: 5%;       
+                     font-size: 0.9vw;
+                     margin-left: 80%;
+}
+.finalizar:hover{
+    background-color: white;
+             border: solid;
+             color: black;
+}
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -88,7 +103,7 @@ Carrito carrito = new Carrito();
 
                     %>
                 </table>
-                <button id="finalizarpedido">Finalizar Pedido</button>
+                <button class="finalizar" id="finalizarpedido">Finalizar Pedido</button>
             </div>  
             
                 <script>
