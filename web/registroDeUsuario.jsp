@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style> 
             input[type='submit']{
-/*                visibility: hidden;*/
+                visibility: hidden;
                 color: black;
                 background-color: white;
                 font-family: 'Oswald' ,sans-serif;
@@ -67,6 +67,21 @@
                 margin-top: 1%;
                 margin-bottom: 1%;
             }
+            .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: black;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Oswald' ,sans-serif;
+}
             
         </style>
         <title>Registro de Usuario</title>
@@ -94,6 +109,7 @@
             <input id="boton" type="submit" value="Registrarse">
         </form>
         </div>
+        <div class="footer">&copy;<span id="year"> </span><span> CUSTOMADE. All rights reserved.</span></div>
         <script>
             document.getElementById('pass2').onkeyup = function(){
                 if(document.getElementById('pass2').value != document.getElementById('pass1').value){

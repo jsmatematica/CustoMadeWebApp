@@ -36,7 +36,7 @@ public class registrarUsuario extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             if(request.getParameter("pass1").toString().equals(request.getParameter("pass2").toString()) && Conexion.getInstance().getControladorDeUsuarios().verificarNombreDeUsuarioDisponible(request.getParameter("email"))){
             Conexion.getInstance().getControladorDeUsuarios().crearUsuario(request.getParameter("nombre"), Integer.parseInt(request.getParameter("ci")), request.getParameter("tel"), request.getParameter("email"), request.getParameter("dir"), Encriptador.getMD5(request.getParameter("pass2")));
-            out.print("Usuario Registrado con Exito");
+            out.print("Usuario Registrado con Exito<br><a href='index.jsp'>VOLVER AL INICIO</a>");
             }else{
             out.print("Datos de registro incorrectos");
             }

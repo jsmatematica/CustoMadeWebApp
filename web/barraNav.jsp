@@ -28,6 +28,10 @@
         nav img{
             height:  9vh;
             margin-left: 20%;
+            transition: transform .2s;
+        }
+        nav img:hover{
+            transform: scale(1.2);
         }
         nav a{
             position: absolute;
@@ -37,6 +41,18 @@
             font-size: 1.2vw;
             text-decoration: none;
             color: white;
+        }
+        .botones:hover{
+            padding: 1vh;
+            background-color: white;
+             top: 10%;
+             border-radius: 5%;
+             text-decoration: none;
+             color: black;
+        }
+        #seguimiento{
+             border-radius: 5%;
+             text-decoration: none;
         }
         
         #inicio  {
@@ -107,12 +123,12 @@
 
     <img id="verCarrito" src="carrito.png" alt="carrito">
     <% if(sesion.getAttribute("Usuario")==null){ %>
-    <a id="inicioDeSesion" href='iniciodesesion.jsp' >Iniciar Sesión</a>
-    <a id="registro" href='registroDeUsuario.jsp'>Registrarse</a>
+    <a class="botones" id="inicioDeSesion" href='iniciodesesion.jsp' >Iniciar Sesión</a>
+    <a class="botones" id="registro" href='registroDeUsuario.jsp'>Registrarse</a>
     <%}else{%>
     
-    <a id="verPedido" href='verpedidosUsuario.jsp' >Mis Pedidos</a>
-    <a id="cerrarsesion" href='cerrarSesion.jsp'>Cerrar Sesión</a>
+    <a class="botones" id="verPedido" href='verpedidosUsuario.jsp' >Mis Pedidos</a>
+    <a class="botones" id="cerrarsesion" href='cerrarSesion.jsp'>Cerrar Sesión</a>
     
     <%}%>
     <dialog id="visualizador">

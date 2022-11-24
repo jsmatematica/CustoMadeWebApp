@@ -14,14 +14,29 @@
 <!DOCTYPE html>
 <html>
     <head>
+          <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
         <style>     
             table{
                 text-align: center;
-                margin: 15vh auto;
+                margin: 4vh auto;
                 border: solid;
                 border-radius: 10px;
                 padding: 10px;
+                font-family: 'Oswald' ,sans-serif;
             }
+            h2{
+                text-transform: uppercase;
+                font-family: 'Oswald' ,sans-serif;
+                text-align: center;
+                margin-top: 10%;
+            }
+            .ver{
+                color: black;
+            }
+            .ver:hover{
+                text-decoration: none;
+            }
+            
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Peiddos del Usuario</title>
@@ -59,7 +74,7 @@
                 <td><% out.print(next.getFecha()); %></td>
                 <td><% out.print("$"+next.getPrecioTotal());%></td>
                 <td><% out.print(next.getEstado()); %></td>
-                <td><a href='verdisenios.jsp?idPedido=<%out.print(next.getId());%>'>Ver diseños</a></td>
+                <td><a class="ver" href='verdisenios.jsp?idPedido=<%out.print(next.getId());%>'>Ver diseños</a></td>
             </tr>
             <%
         }

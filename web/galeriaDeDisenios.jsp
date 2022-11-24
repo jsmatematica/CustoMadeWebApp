@@ -31,6 +31,8 @@
                 text-align: center;
                 display: inline-block;
                 background: white;
+                color: black;
+                transition: transform .2s;
             }
             
             
@@ -73,7 +75,7 @@ height: 53%;
 }
 
 figure:hover{
-    border-color: blue;
+    transform: scale(1.08);
 }
 
         </style>

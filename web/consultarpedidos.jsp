@@ -12,14 +12,14 @@
         <title>Consulta de Pedidos</title>
         <style>
             #cuadroDeBusqueda{
-                border: solid;
-                border-radius: 10px;
                 margin: 15vh auto;
-                width: 50vh;
-                height: 10vh;
-                padding: 5%;
-                padding-left: 10%;
-                font-family: sans-serif;
+               font-family: 'Oswald' ,sans-serif;
+               color: white;
+               background-color: black;
+                width: 50%;
+                text-align: center;
+                margin-top: 8vh;
+                padding: 3vh;
             }
             
             table{
@@ -29,9 +29,24 @@
                 padding: 5px;
                 width: 50vw;
                 text-align: center;
-                font-family: sans-serif;
+                font-family: 'Oswald' ,sans-serif;
 
             }
+            .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: black;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Oswald' ,sans-serif;
+}
         </style>
     </head>
     <body>
@@ -46,6 +61,7 @@
             <button id='boton'>Buscar</button>
         </div>
         <div id='respuesta'></div>
+        <div class="footer">&copy;<span id="year"> </span><span> CUSTOMADE. All rights reserved.</span></div>
     </body>
     <script>
         document.getElementById("boton").onclick = function(){

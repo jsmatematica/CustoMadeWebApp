@@ -41,38 +41,54 @@
                 margin-top: 10vh;
                 margin-left: 10vw;
             }
-            p{
+            .pe{
                 margin-top: 15vh;
                 margin-left: 15vw;
-            }
-            #parrafomedio {
+                font-family: 'Oswald' ,sans-serif;
+                font-size: 2vh;
+               text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+               }
+             
+            .parrafomedio {
                text-align: center; 
-                 margin-top: 15vh;
+                margin-top: 3vw;
                 margin-left: 30vw;
-                background-color: black;
-                color:white;
-                margin-right: 30vw;  
+                font-size: 1vw;
+                color:black;
+                margin-right: 30vw;
+                pointer-events: none;    
             }
+            
+            
+            
              body {
                  font-family: 'Oswald' ,sans-serif;
-                background-image: url('background.jpg');
-                background-size: 30%;  
             }
-            #seguimiento{
+            .seguimiento{
                                             
                     background: black;
                     padding: 0.5%; 
                      text-transform: uppercase;
                      color: white;
                      font-size: 0.9vw;
-  
+                    
+            }
+            .seguimiento:hover{
+                padding: 1%;
+                text-decoration: none;
+                color: white;
+            }
+            .titulo{
+                font-family: 'Oswald' ,sans-serif;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                font-size: 4vh;
             }
             
         </style>
     </head>
     <body>
         <%@include file="barraNav.jsp" %>
-        <a id="seguimiento" href='consultarpedidos.jsp'>Seguimiento de Pedidos</a>
+        <a class="seguimiento" href='consultarpedidos.jsp'>Seguimiento de Pedidos</a>
         <% Conexion.getInstance();  %>
         
         <div class="container">
@@ -88,42 +104,42 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-          <img src="buscandoeninternet.webp" alt="Los Angeles" style="width:100%;">
+          <img src="hombre.jpg" alt="Los Angeles" style="width:100%;">
       <div class="carousel-caption">
-      <h3>Busca</h3>
-        <p>en internet la imagen con la que quieres personalizar tu diseño</p>
+      <h3 class="titulo">BUSCA</h3>
+        <p class="pe">en internet la imagen con la que quieres personalizar tu diseño</p>
       </div>
       </div>
 
       <div class="item">
           <img src="creandoeldisenio.png" alt="Chicago" style="width:100%;">
           <div class="carousel-caption">
-            <h3>Crea</h3>
-        <p>tu diseño con todo lo que más te gusta</p>
+            <h3 class="titulo">CREA</h3>
+        <p class="pe">tu diseño con todo lo que más te gusta</p>
       </div>
       </div>
     
       <div class="item">
           <img src="noscomunicamos.jpg" alt="New york" style="width:100%;">
         <div class="carousel-caption">
-            <h3>Envíanos</h3>
-        <p>tu pedido con tus creaciones y nos contactaremos contigo para coordinar el pago y el envío</p>
+            <h3 class="titulo">ENVÍANOS</h3>
+        <p class="pe">tu pedido con tus creaciones y nos contactaremos contigo para coordinar el pago y el envío</p>
       </div>
       </div>
         
       <div class="item">
-          <img src="recibiendopaquete.jfif" alt="New york" style="width:100%;">
+          <img src="hombredelivery.jpg" alt="New york" style="width:100%;">
         <div class="carousel-caption">
-            <h3>Recibirás</h3>
-        <p>tus obras de arte sin la necesidad de moverte de tu casa</p>
+            <h3 class="titulo">RECIBIRÁS</h3>
+        <p class="pe">tus obras de arte sin la necesidad de moverte de tu casa</p>
       </div>
       </div>
         
        <div class="item">
-          <img src="ropa.jpg" alt="New york" style="width:75%;">
+          <img src="hombreremera.jpg" alt="New york" style="width:75%;">
         <div class="carousel-caption">
-            <h3>Lúcete</h3>
-        <p>con tus diseños personalizados y publica tus diseños en nuestra web para que otros puedan disfrutar de tu arte</p>
+            <h3 class="titulo">LÚCETE</h3>
+        <p class="pe">con tus diseños personalizados y publica tus diseños en nuestra web para que otros puedan disfrutar de tu arte</p>
       </div>
       </div>
     </div>
@@ -144,7 +160,7 @@
             <button type="button" class="btn btn-primary">COMENCEMOS!!!</button>
             <a/>
         </div>
-        <p id="parrafomedio">
+        <p class="parrafomedio">
             También puedes elegir alguno de los diseños que nuestros usuarios han compartido con nosotros, si te gusta alguno úsalo!
         </p> 
         <div class="galeria">
